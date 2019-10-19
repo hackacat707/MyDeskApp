@@ -1,0 +1,40 @@
+
+:root {
+	--OxfordBlue: #233237;
+	--Marzipan: #EAC67A;
+	--Sunglo: #BF5D54;
+	
+}
+.SRed{
+	color: #BF5D54;
+
+}
+.OxBlue{
+	color: #233237;
+
+}
+.MYellow #MYe1{
+	color: #EAC67A;
+
+}
+
+.talign-c{
+	text-align: center;
+	
+}
+#SearchBar{
+     width: 50%;
+	
+}
+.SearchBtn{
+	border-radius: 8px;
+	padding: 3px 8px;
+	background-color: white;
+	border: 0.5px solid #233237;
+	width: 6rem;
+}
+.contentBox{
+	border: 2px solid #233237;
+	background-color: white;
+	margin-right: 60px;
+}
