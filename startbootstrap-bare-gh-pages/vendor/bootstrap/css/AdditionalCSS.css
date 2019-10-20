@@ -13,7 +13,7 @@
 	color: #233237;
 
 }
-.MYellow #MYe1{
+.MYellow{
 	color: #EAC67A;
 
 }
@@ -21,6 +21,9 @@
 .talign-c{
 	text-align: center;
 	
+}
+.talign-r{
+	text-align:right;
 }
 #SearchBar{
      width: 50%;
@@ -33,8 +36,43 @@
 	border: 0.5px solid #233237;
 	width: 6rem;
 }
+.flLeft{
+	float: left;
+	
+}
 .contentBox{
 	border: 2px solid #233237;
 	background-color: white;
-	margin-right: 60px;
+	padding-top: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	width: 100%
+}
+.placeImg{
+	width: 100%;
+	height: 100px;
+	margin-bottom: 5%;
+	
+}
+.lineHe{
+	line-height: 3px;
+}
+.prStyling{
+	font-size: 14px;
+}
+.raStyling{
+	font-size: 12px;
+}
+.detStyling{
+	font-size: 12px;
+	text-align:right;
+}
+.fBold{
+	font-weight:bold;
+}
+.vMoreStyling{
+	font-size: 14px;
+}
+.footerHeight{
+	height: 100px;
 }
