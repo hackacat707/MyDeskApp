@@ -36,8 +36,19 @@
 	border: 0.5px solid #233237;
 	width: 6rem;
 }
+.FilterBtn{
+	border-radius: 8px;
+	padding: 1px 5px;
+	background-color: white;
+	border: 0.5px solid #233237;
+	float: right;
+}
 .flLeft{
 	float: left;
+	
+}
+.flRight{
+	float: right;
 	
 }
 .contentBox{
@@ -48,10 +59,25 @@
 	padding-right: 1rem;
 	width: 100%
 }
+.cBoxMore{
+	padding-bottom: 1rem;
+}
 .placeImg{
 	width: 100%;
 	height: 100px;
 	margin-bottom: 5%;
+	
+}
+.placeImgBig{
+	width: 100%;
+	height: 200px;
+	margin-bottom: 0.5rem;
+	
+}
+.placeImgSmall{
+	width: 32%;
+	height: 50px;
+
 	
 }
 .lineHe{
@@ -75,4 +101,7 @@
 }
 .footerHeight{
 	height: 100px;
+}
+ .checkboxes label{
+       margin: 0px 30px 0px 3px;
 }
