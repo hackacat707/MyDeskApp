@@ -71,12 +71,12 @@ $enc = base64_encode ($password);
                     <a class="nav-link" href="About.html">About Us</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="Register.html">Sign Up
+                    <a class="nav-link" href="newRegister.php">Sign Up
 					 <span class="sr-only">(current)</span>
 					</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Login.html">Sign In</a>
+                    <a class="nav-link" href="newLogin.php">Sign In</a>
                 </li>
 				<li class="nav-item">
                     <a class="nav-link" href="FAQ.html">FAQ</a>

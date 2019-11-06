@@ -48,10 +48,10 @@ include("checkLogin.php");
                     <a class="nav-link" href="About.html">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Register.html">Sign Up</a>
+                    <a class="nav-link" href="newRegister.php">Sign Up</a>
                 </li>
                 <li class="nav-item  active">
-                    <a class="nav-link" href="Login.html">Sign In
+                    <a class="nav-link" href="newLogin.php">Sign In
 					<span class="sr-only">(current)</span>
 					</a>
                 </li>
