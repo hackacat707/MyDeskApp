@@ -1,3 +1,18 @@
+<?php 
+include("checkLogin.php");
+//$key = "pwd";
+//$enc = base64_encode ($key);
+//$dec = base64_decode ($enc);
+//echo 'Encrypted : '.$enc.'<br>';
+//echo 'Decrypted : '.$dec.'<br>';
+if(isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $location = $_POST['location'];
+    $description = $_POST['description'];
+    $rent = $_POST['rent'];
+   }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
