@@ -1,10 +1,6 @@
 <?php 
 include("checkLogin.php");
-//$key = "pwd";
-//$enc = base64_encode ($key);
-//$dec = base64_decode ($enc);
-//echo 'Encrypted : '.$enc.'<br>';
-//echo 'Decrypted : '.$dec.'<br>';
+
 if(isset($_POST['submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -51,10 +47,10 @@ if(isset($_POST['submit'])) {
                     <a class="nav-link" href="About.html">About Us</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="Register.html">Sign Up </a>
+                    <a class="nav-link" href="newRegister.php">Sign Up </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Login.html">Sign In</a>
+                    <a class="nav-link" href="newLogin.php">Sign In</a>
                 </li>
 				<li class="nav-item">
                     <a class="nav-link" href="FAQ.html">FAQ</a>
@@ -63,7 +59,7 @@ if(isset($_POST['submit'])) {
                     <a class="nav-link" href="contact-us.html">Contact Us</a>
                 </li>
 		     <li class="nav-item">
-                    <a class="nav-link" href="post.html">Post
+                    <a class="nav-link" href="post.php">Post
 		<span class="sr-only">(current)</span></a>
                 </li>
             </ul>

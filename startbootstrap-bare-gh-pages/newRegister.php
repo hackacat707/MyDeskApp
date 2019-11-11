@@ -1,10 +1,10 @@
 <?php 
 $server = "localhost";
-$user = "id11438325_mydeskapp";
+$user = "root";
 $pass = "5minecrafts@boxes!";
-$dbname = "id11438325_mydeskapp";
+$dbname = "mydeskapp";
    
-   $conn = new mysqli($server, $user, $pass, $db) or die("Unable to connect");
+   $conn = new mysqli($server, $user, $pass, $dbname) or die("Unable to connect");
    
    if (!$conn) {
 	die("Connection failed: " . mysqli_connect_error());
@@ -98,7 +98,7 @@ $enc = base64_encode ($password);
             <form>
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input class="form-control" id="name" type="name" name="name">
+                    <input class="form-control" id="name" name="name">
                 </div>
                 <div class="form-group">
                     <label for="email">Email address:</label>
@@ -111,7 +111,7 @@ $enc = base64_encode ($password);
                 <div class="checkbox">
                     <label><input type="checkbox"> Remember me</label>
                 </div>
-                <button class="btn btn-default" type="submit" name="submit" method="post">Submit</button>
+                <button class="btn btn-default" type="submit" name="submit">Submit </button>
 	            <button class="btn btn-default" type="submit" name="home">back to home page</button>
             </form>
         </div>
