@@ -8,7 +8,7 @@
     <meta content="" name="description">
     <meta content="" name="author">
 
-    <title>Frequently Asked Questions</title>
+    <title>Listing</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -55,6 +55,35 @@
 </nav>
 
 <!-- Page Content -->
+
+<div id="googleMap" style="width:400px;height:400px; margin:0 auto;"></div>
+
+<script>
+
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(53.350140, -6.266155),
+  zoom:12,
+};
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+  var marker = new google.maps.Marker({
+    position:new google.maps.LatLng(53.348756, -6.243072),
+    map: googleMap,
+    title: 'Hello World!'
+  });
+  
+  marker.setMap(myMap);
+} 
+
+</script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzORKjpjUJVLyhW39xpF-xSXwZuhwozuA&callback=myMap"></script>
+
+
 <div class="container">
 
 <div style="padding:30px">
