@@ -84,6 +84,9 @@ $enc = base64_encode ($password);
                 <li class="nav-item">
                     <a class="nav-link" href="contact-us.html">Contact Us</a>
                 </li>
+		     <li class="nav-item">
+                    <a class="nav-link" href="post.php">Rent Your Place </a>
+                </li>
             </ul>
         </div>
     </div>
