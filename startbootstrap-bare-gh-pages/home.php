@@ -40,17 +40,21 @@ if (!isset($_SESSION['loggedin'])) {
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <li class="nav-item"></li>
            <li class="nav-item active">
             <a class="nav-link" href="login.html">Home
 			  <span class="sr-only">(current)</span>
 			  </a>
           </li>
+            <li class="nav-item">
             <a class="nav-link " href="About.html">About Us</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="profile.php">Profile</a>
           </li>
+            <li class="nav-item">
+                <a class="nav-link" href="post.php">Rent Your Place </a>
+            </li>
           <li class="nav-item">
               <a class="nav-link" href="logout.php">Log out</a>
           </li>
@@ -71,7 +75,7 @@ if (!isset($_SESSION['loggedin'])) {
     <div class="container">
     <div class="row">
       <div class="col-lg-12 talign-c mt-5">
-			<input type="text" placeholder="Location" id = "SearchBar">
+          <label for="SearchBar"></label><input type="text" placeholder="Location" id = "SearchBar">
 			<button type="submit" class="SearchBtn" ><a href="search.html" target= "blank" >Search</a></button>
 			<h3>Welcome back, <?=$_SESSION['name']?>!</h3>
       </div>
@@ -95,7 +99,7 @@ if (!isset($_SESSION['loggedin'])) {
 	 <div class="col-lg-12">
 		<div class="col-sm-4 flLeft">
 			<div class = "contentBox" >
-				<img href = "#" class="placeImg"/>
+				<img src = "#" class="placeImg" alt="place image"/>
 				<h6> Title/Location</h6>
 				<p class= "lineHe prStyling">Price</p>
 				<p class= "lineHe raStyling" >Rating</p>
@@ -104,7 +108,7 @@ if (!isset($_SESSION['loggedin'])) {
 		  </div>
 		  <div class="col-sm-4 flLeft">
 			<div class = "contentBox" >
-				<img href = "#" class="placeImg"/>
+                <img src = "#" class="placeImg" alt="place image"/>
 				<h6> Title/Location</h6>
 				<p class= "lineHe prStyling">Price</p>
 				<p class= "lineHe raStyling" >Rating</p>
@@ -113,7 +117,7 @@ if (!isset($_SESSION['loggedin'])) {
 		  </div>
 		 <div class="col-sm-4 flLeft">
 			<div class = "contentBox" >
-				<img href = "#" class="placeImg"/>
+                <img src = "#" class="placeImg" alt="place image"/>
 				<h6> Title/Location</h6>
 				<p class= "lineHe prStyling">Price</p>
 				<p class= "lineHe raStyling" >Rating</p>
@@ -141,7 +145,7 @@ if (!isset($_SESSION['loggedin'])) {
 		<div class="col-lg-12">
 		<div class="col-sm-4 flLeft">
 			<div class = "contentBox" >
-				<img href = "#" class="placeImg"/>
+                <img src = "#" class="placeImg" alt="place image"/>
 				<h6> Title/Location</h6>
 				<p class= "lineHe prStyling">Price</p>
 				<p class= "lineHe raStyling" >Rating</p>
@@ -150,7 +154,7 @@ if (!isset($_SESSION['loggedin'])) {
 		  </div>
 		  <div class="col-sm-4 flLeft">
 			<div class = "contentBox" >
-				<img href = "#" class="placeImg"/>
+                <img src = "#" class="placeImg" alt="place image"/>
 				<h6> Title/Location</h6>
 				<p class= "lineHe prStyling">Price</p>
 				<p class= "lineHe raStyling" >Rating</p>
@@ -159,7 +163,7 @@ if (!isset($_SESSION['loggedin'])) {
 		  </div>
 		 <div class="col-sm-4 flLeft">
 			<div class = "contentBox" >
-				<img href = "#" class="placeImg"/>
+                <img src = "#" class="placeImg" alt="place image"/>
 				<h6> Title/Location</h6>
 				<p class= "lineHe prStyling">Price</p>
 				<p class= "lineHe raStyling" >Rating</p>

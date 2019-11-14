@@ -1,5 +1,5 @@
 <?php 
-include("checkLogin.php");
+
 
 if(isset($_POST['submit'])) {
     $name = $_POST['name'];
@@ -47,10 +47,10 @@ if(isset($_POST['submit'])) {
                     <a class="nav-link" href="About.html">About Us</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="newRegister.php">Sign Up </a>
+                    <a class="nav-link" href="register.html">Sign Up </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="newLogin.php">Sign In</a>
+                    <a class="nav-link" href="register.html">Sign In</a>
                 </li>
 				<li class="nav-item">
                     <a class="nav-link" href="FAQ.html">FAQ</a>
