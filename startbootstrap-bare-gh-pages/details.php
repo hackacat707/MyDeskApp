@@ -1,3 +1,22 @@
+<?php
+// We need to use sessions, so you should always start sessions using the below code.
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: login.html');
+	exit();
+}
+
+include_once 'databaseConnection.php';
+
+?> 
+<style>
+<?php 
+include "vendor/bootstrap/css/bootstrap.min.css";
+include "vendor/bootstrap/css/AdditionalCSS.css";
+?>
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,31 +83,43 @@
 
   
   
-  <div class="container">
+  <?php
+  $Id = $_GET['varId'];
+$sql = "SELECT * FROM host_place where id='$Id';";
+$result = mysqli_query($con, $sql);
+
+if (mysqli_num_rows ($result)>0){
+	while ($row = mysqli_fetch_assoc($result)){
+		echo '
+<div class="container">
     <div class="row ">
       <div class="col-lg-12 mt-5">
 	  <div class="col-sm-8 flLeft"> 
-        <h2 >Title</h2>
-		<p> Address: </p>
-		<p> Contact the Host: </p>
-		<p> Price:  </p>
-		<p> Description:  </p>
-		<p> Rating:  </p>
+        <h2 >Title: ' .$row['title']. '</h2>
+		<p> Address:' .$row['address']. '</p>
+		<p> Contact the Host: '.$row['phone_no']. '<br>' .$row['email'].'</p>
+		<p> Price: ' .$row['price'].  '</p>
+		<p> Description:  '.$row['details']. '</p>
+		<p> Rating: ' .$row['rating']. '</p>
 		
 		<button type="submit" class="SearchBtn flRight" >Reserve</button>
 		</div>
 		<div class="col-sm-4 flLeft"> 
 			<div class = "" >
-				<img src ="#" class="placeImgBig" alt="big image"/>
-				<img src = "#" class="placeImgSmall" alt="small image"/>
-				<img src = "#" class="placeImgSmall" alt="small image"/>
-				<img src = "#" class="placeImgSmall" alt="small image"/>
+				<img src ="images/image.png" class="placeImgBig" alt="big image"/>
+				<img src = "images/image.png" class="placeImgSmall" alt="small image"/>
+				<img src = "images/image.png" class="placeImgSmall" alt="small image"/>
+				<img src = "images/image.png" class="placeImgSmall" alt="small image"/>
 				
 			</div>
 		</div>
       </div>
     </div>
-  </div>
+  </div>';
+	}
+}
+
+  ?>
   
   
  

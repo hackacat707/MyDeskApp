@@ -1,3 +1,13 @@
+<?php
+include_once 'databaseConnection.php';
+?> 
+<style>
+<?php 
+include "vendor/bootstrap/css/bootstrap.min.css";
+include "vendor/bootstrap/css/AdditionalCSS.css";
+?>
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +21,8 @@
   <title>Team Project</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="vendor/bootstrap/css/AdditionalCSS.css" rel="stylesheet">
+	  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	  <link href="vendor/bootstrap/css/AdditionalCSS.css" rel="stylesheet">
 
 </head>
 
@@ -64,8 +74,10 @@
     <div class="container">
     <div class="row">
       <div class="col-lg-12 talign-c mt-5">
-		  <label for="SearchBar"></label><input type="text" placeholder="Location" id = "SearchBar">
-			<button type="submit" class="SearchBtn" ><a href="search.html" target= "blank" >Search</a></button>
+		 <form action="search.php"method="POST">
+				<input type="text" name ="search" placeholder="Search" id = "SearchBar">
+				<button type="submit" name="submit-search" class="SearchBtn" >Search</button>
+		</form>
       </div>
     </div>
 	<br/>
@@ -108,86 +120,50 @@
   
   
   <div class="container">
-	<div class="row">
-	 <!-- Boxes with search results  -->
-	 <div class="col-lg-12">
-		<div class="col-sm-4 flLeft">
-			<div class = "contentBox" >
-				<img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
-			</div>
-		  </div>
-		  <div class="col-sm-4 flLeft">
-			<div class = "contentBox" >
-				<img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
-			</div>
-		  </div>
-		 <div class="col-sm-4 flLeft">
-			<div class = "contentBox" >
-				<img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
-			</div>
-		  </div>
-		  </div>
+		<div class="row">
+		 <!-- Boxes with search results  -->
+		 <div class="col-lg-12">
+			<?php 
+				if(isset($_POST['submit-search'])){
+					$search = mysqli_real_escape_string($con, $_POST['search']);
+					$sql ="SELECT * FROM host_place WHERE title LIKE '%$search%' OR 
+					address LIKE '%$search%' OR details LIKE '%$search%'";
+					
+					$result = mysqli_query($con, $sql);
+					$queryResult = mysqli_num_rows($result);
+					
+					
+					if($queryResult>0){
+						while($row = mysqli_fetch_assoc($result)){
+							$homeId = $row['id'];
+							echo '
+							<div class="col-sm-4 flLeft">
+								<div class = "contentBox" >
+									<img src = "images/image.png" class="placeImg" alt="place image"/>
+									<h6> Title/Location '.$row["title"]. '</h6>
+									<p class= "lineHe prStyling">Price '.$row["price"]. '</p>
+									<p class= "lineHe raStyling" >Rating '.$row["rating"]. '</p>
+									<p class= "lineHe detStyling fBold"><a href="details.php?varId=' .$homeId.'" target= "blank" class="SRed">Details ></a> </p>
+								</div>
+							  </div>
+							';
+							
+						}
+						
+					}else{
+						echo "There are no results matching your search";						
+					}
+					
+				}
+			
+			?>
+			  
+			  
+		 </div>
+		
 		</div>
-		<br/>
-	</div>
-  
-  
-  <div class="container">
-    <div class="row ali">
-	  <!-- more boxes with search results -->
-		<div class="col-lg-12">
-		<div class="col-sm-4 flLeft">
-			<div class = "contentBox" >
-				<img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
-			</div>
-		  </div>
-		  <div class="col-sm-4 flLeft">
-			<div class = "contentBox" >
-				<img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
-			</div>
-		  </div>
-		 <div class="col-sm-4 flLeft">
-			<div class = "contentBox" >
-				<img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
-			</div>
-		  </div>
-		  </div>
-		</div>
-		<br/>
 	</div>
 	
-	
-	<div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <p href = "#" class= "talign-r fBold vMoreStyling"> View More ></p>
-      </div>
-	</div>
-  </div>
 	
 	<div class="container">
     <div class="row">

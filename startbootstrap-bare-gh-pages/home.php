@@ -6,7 +6,14 @@ if (!isset($_SESSION['loggedin'])) {
 	header('Location: login.html');
 	exit();
 }
+include_once 'databaseConnection.php';
+?> 
+<style>
+<?php 
+include "vendor/bootstrap/css/bootstrap.min.css";
+include "vendor/bootstrap/css/AdditionalCSS.css";
 ?>
+</style>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,9 +82,12 @@ if (!isset($_SESSION['loggedin'])) {
     <div class="container">
     <div class="row">
       <div class="col-lg-12 talign-c mt-5">
-          <label for="SearchBar"></label><input type="text" placeholder="Location" id = "SearchBar">
-			<button type="submit" class="SearchBtn" ><a href="search.html" target= "blank" >Search</a></button>
-			<h3>Welcome back, <?=$_SESSION['name']?>!</h3>
+			<form action="search.php"method="POST">
+				<input type="text" name ="search" placeholder="Search" id = "SearchBar">
+				<button type="submit" name="submit-search" class="SearchBtn" >Search</button>
+			</form>
+			<h3>Welcome back, <?=$_SESSION['name']?> ! 
+			</h3>
       </div>
     </div>
 	<br/>
@@ -93,41 +103,52 @@ if (!isset($_SESSION['loggedin'])) {
   </div>
   
   
-  <div class="container">
+  <?php 
+$homeId = 1;
+$sql = "SELECT * FROM host_place ORDER BY rating DESC;";
+$result = mysqli_query($con, $sql);
+$data = array();
+if (mysqli_num_rows ($result)>0){
+	while ($row = mysqli_fetch_assoc($result)){
+		$titleR[] = $row['title'];
+		$addressR[] = $row['address'];
+		$priceR[] = $row['price'];
+		$ratingR[] = $row['rating'];	
+		$detailsR[] = $row['details'];
+		$phoneNoR[] = $row['phone_no'];
+		$emailR[] = $row['email'];
+		$idR[] = $row['id'];
+	}
+}
+	echo '<div class="container">
 	<div class="row">
 	 <!-- Boxes with recommended locations -->
-	 <div class="col-lg-12">
-		<div class="col-sm-4 flLeft">
+	 <div class="col-lg-12"> ';
+	 
+	 for ($i=0; $i<3; $i++){
+		 
+		 $GLOBALS ['homeId'] = $idR[$i];
+		 echo '<div class="col-sm-4 flLeft">
 			<div class = "contentBox" >
-				<img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
+				<img src = "images/image.png" class="placeImg" alt="place image"/>
+				<h6> Title/Location '.$titleR[$i]. 
+				'</h6>
+				<p class= "lineHe prStyling">Price:' .$priceR[$i].
+
+				'<p class= "lineHe raStyling" >Rating:' .$ratingR[$i].
+				'</p>
+				<p class= "lineHe detStyling fBold"><a href="details.php?varId=' .$homeId.'" target= "blank" class="SRed">Details 
+				></a> </p>
 			</div>
-		  </div>
-		  <div class="col-sm-4 flLeft">
-			<div class = "contentBox" >
-                <img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
-			</div>
-		  </div>
-		 <div class="col-sm-4 flLeft">
-			<div class = "contentBox" >
-                <img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
-			</div>
-		  </div>
-		  <p href = "#" class= "talign-r fBold vMoreStyling"> View More ></p>
-		  </div>
+		  </div>';
+		  
+		 
+	 }
+	 
+	 echo '	  </div>
 		</div>
-	</div>
+	</div> ';
+  ?>
 
   
   <div class="container">
@@ -139,42 +160,50 @@ if (!isset($_SESSION['loggedin'])) {
   </div>
   
   
-  <div class="container">
-    <div class="row ali">
-	  <!-- Boxes with newest locations -->
-		<div class="col-lg-12">
-		<div class="col-sm-4 flLeft">
+   <?php 
+$sql = "SELECT * FROM host_place ORDER BY id DESC";
+$result = mysqli_query($con, $sql);
+$data = array();
+if (mysqli_num_rows ($result)>0){
+	while ($row = mysqli_fetch_assoc($result)){
+		$titleN[] = $row['title'];
+		$addressN[] = $row['address'];
+		$priceN[] = $row['price'];
+		$ratingN[] = $row['rating'];	
+		$detailsN[] = $row['details'];
+		$phoneNoN[] = $row['phone_no'];
+		$emailN[] = $row['email'];
+		$idN[] = $row['id'];
+	}
+}
+	echo '<div class="container">
+	<div class="row">
+	 <!-- Boxes with newest locations -->
+	 <div class="col-lg-12"> ';
+	 
+	 for ($i=0; $i<3; $i++){
+		 
+		 $GLOBALS ['homeId'] = $idN[$i];
+		 echo '<div class="col-sm-4 flLeft">
 			<div class = "contentBox" >
-                <img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
+				<img src = "images/image.png" class="placeImg" alt="place image"/>
+				<h6> Title/Location '.$titleN[$i]. 
+				'</h6>
+				<p class= "lineHe prStyling">Price:' .$priceN[$i].
+
+				'<p class= "lineHe raStyling" >Rating:' .$ratingN[$i].
+				'</p>
+				<p class= "lineHe detStyling fBold"><a href="details.php?varId=' .$homeId.'" target= "blank" class="SRed">Details ></a> </p>
 			</div>
-		  </div>
-		  <div class="col-sm-4 flLeft">
-			<div class = "contentBox" >
-                <img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
-			</div>
-		  </div>
-		 <div class="col-sm-4 flLeft">
-			<div class = "contentBox" >
-                <img src = "#" class="placeImg" alt="place image"/>
-				<h6> Title/Location</h6>
-				<p class= "lineHe prStyling">Price</p>
-				<p class= "lineHe raStyling" >Rating</p>
-				<p class= "lineHe detStyling fBold"><a href="details.html" target= "blank" class="SRed">Details ></a> </p>
-			</div>
-		  </div>
-		  <p href = "#" class= "talign-r fBold vMoreStyling"> View More ></p>
-		  </div>
+		  </div>';
+		 
+	 }
+	 
+	 echo '	  </div>
 		</div>
-	</div>
-	
+	</div> ';
+   ?>
+
 	<div class="container">
     <div class="row">
       <div class="col-lg-12 footerHeight">
