@@ -63,7 +63,7 @@ include "vendor/bootstrap/css/AdditionalCSS.css";
             </a>
           </li>
 	       <li class="nav-item">
-                    <a class="nav-link" href="post.php">Rent Your Place </a>
+                    <a class="nav-link" href="post.php">Post </a>
                 </li>
         </ul>
       </div>
