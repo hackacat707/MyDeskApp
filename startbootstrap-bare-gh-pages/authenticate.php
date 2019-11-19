@@ -1,6 +1,8 @@
 <?php
 session_start();
 // Change this to your connection info.
+
+include "databaseConnection.php";
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'id11438325_mydeskapp';
 $DATABASE_PASS = '5minecrafts@boxes!';

@@ -1,5 +1,10 @@
-<?php 
-
+<?php
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: login.html');
+    exit();
+}
 
 if(isset($_POST['submit'])) {
     $name = $_POST['name'];
