@@ -73,7 +73,7 @@ include "vendor/bootstrap/css/AdditionalCSS.css";
             <a class="nav-link" href="contact-us.html">Contact Us</a>
           </li>
 			   <li class="nav-item">
-                    <a class="nav-link" href="post.php">Rent Your Place </a>
+                    <a class="nav-link" href="post.php">Post </a>
                </li>
 
         </ul>
