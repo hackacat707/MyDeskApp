@@ -11,7 +11,7 @@
     <title>Listing</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap.min.css" rel="stylesheet">
 	
 	<link href="../Gallery.css" rel="stylesheet">
 </head>
@@ -64,25 +64,25 @@
   <div class="mySlides fade">
     <div class="numbertext">1 / 4</div>
     <img src="office1.jpg" style="width:100%">
-    <div class="text">Caption Text</div>
+    <div class="text">Luxury Desk</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">2 / 4</div>
     <img src="office2.jpg" style="width:100%">
-    <div class="text">Caption Two</div>
+    <div class="text">Picture of the home</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">3 / 4</div>
     <img src="office3.jpg" style="width:100%">
-    <div class="text">Caption Three</div>
+    <div class="text">Ideal Workspace</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">4 / 4</div>
     <img src="office4.jpg" style="width:100%">
-    <div class="text">Caption four</div>
+    <div class="text">City Centre location</div>
   </div>
 
   <!-- Next and previous buttons -->
@@ -103,19 +103,20 @@
 <h1>Dublin 2 Home</h1>
 
 <div class="col-sm-8 flLeft"> 
-		<p> Address: </p>
-		<p> Contact the Host: </p>
-		<p> Price:  </p>
-		<p> Description:  </p>
-		<p> Rating:  </p>
+		<p> <b>Address:</b> 2a McKinney Road, Dublin 2 </p>
+		<p> <b>Contact the Host:</b> xxxxx@Gmail.com </p>
+		<p> <b>Price:</b> €18 Per day </p>
+		<p> <b>Description:</b> A Dublin home office located near the canal. Well serviced by public transport
+		</br> Walking distance to Stephen's Green. Located along the canal.		</p>
+		<p> <b>Booking Ref.:</b> DublinC2 </p>
 		
-		<button type="submit" class="SearchBtn flRight">Reserve</button>
+		<button type="submit" class="SearchBtn flRight">
+		 <a href="javascript:void( window.open( 'https://form.jotformeu.com/93232475122350', 'blank', 'scrollbars=yes, toolbar=no, width=700, height=500' ) ) "> Reserve Now </a>
+		</button>
 		</div>
 		
 <h1>Includes</h1>
- <img src="../wifi.png"><h2>Wifi Access</h2>
- <img src="../coffee.png"><h2>Tea/Coffee Making Facilities</h2>
- <img src="../stationary.png"><h2>Stationery Included</h2>
+<img src="../wifi.png">
 </div>
 
 <div id="googleMap" style="width:100%;height:400px; margin:0 auto;"></div>
@@ -136,6 +137,7 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 			map: map,
 			title: 'Ranelagh House'
 			});
+  
   
   marker.setMap(myMap);
 } 
