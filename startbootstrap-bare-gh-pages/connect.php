@@ -22,11 +22,11 @@ echo 'Database is not selected';
 $sql="Insert INTO id11438325_mydeskapp (name,email,phone,call,priority,type,message) VALUES ('$name','$email','$phone','$call','$priority','$type','$message')";
 if(!mysqli_query($con,$sql))
 {
-echo ' Not Inserted';
+echo ' Fail to Send Message';
 }
 else
 {
-echo 'Inserted'
+echo 'Message Sent Successfully '
 }
 header("refresh:2; url= index.html");
 
