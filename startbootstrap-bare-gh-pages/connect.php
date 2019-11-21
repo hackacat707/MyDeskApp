@@ -1,5 +1,17 @@
 <?php
-if(isset($_POST['submit'])) {
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'id11438325_mydeskapp';
+$DATABASE_PASS = '5minecrafts@boxes!';
+$DATABASE_NAME = 'id11438325_mydeskapp';
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+if (!$con)
+{
+	echo 'Not Connected to the server';
+}
+if (!mysqli_select_db($con,= 'id11438325_mydeskapp'))
+{
+echo 'Database is not selected';
+}
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
@@ -7,12 +19,19 @@ if(isset($_POST['submit'])) {
     $priority = $_POST['priority'];
     $type = $_POST['type'];
     $message = $_POST['message'];
-    $formcontent = " From: $name \n Phone: $phone \n Call Back: $call \n  Priority: $priority \n Type: $type \n Message: $message";
-    $recipient = "YOUREMAIL@HERE.COM";
-    $subject = "Contact Form";
-    $mailheader = "From: $email \r\n";
-    mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
-    echo "Thank You!" . " -" . "<a href='contact-us.html' style='text-decoration:none;color:#ff0099;'> Return Home</a>";
+$sql="Insert INTO id11438325_mydeskapp (name,email,phone,call,priority,type,message) VALUES ('$name','$email','$phone','$call','$priority','$type','$message')";
+if(!mysqli_query($con,$sql))
+{
+echo ' Not Inserted';
 }
+else
+{
+echo 'Inserted'
+}
+header("refresh:2; url= index.html");
+
 ?>
+
+
+
 
