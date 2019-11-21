@@ -1,18 +1,34 @@
-<?php
-session_start();
-// If the user is not logged in redirect to the login page...
-if (!isset($_SESSION['loggedin'])) {
-    header('Location: login.html');
-    exit();
-}
 
-if(isset($_POST['submit'])) {
-    $name = $_POST['name'];
+<?php
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'id11438325_mydeskapp';
+$DATABASE_PASS = '5minecrafts@boxes!';
+$DATABASE_NAME = 'id11438325_mydeskapp';
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+if (!$con)
+{
+	echo 'Not Connected to the server';
+}
+if (!mysqli_select_db($con,= 'id11438325_mydeskapp'))
+{
+echo 'Database is not selected';
+}
+	$name = $_POST['name'];
     $email = $_POST['email'];
     $location = $_POST['location'];
     $description = $_POST['description'];
     $rent = $_POST['rent'];
-   }
+$sql="Insert INTO id11438325_mydeskapp (name,email,location,description,rent) VALUES ('$name','$email','$location','$description','$rent')";
+if(!mysqli_query($con,$sql))
+{
+echo 'Not Posted Successfully ';
+}
+else
+{
+echo 'Posted Successfully'
+}
+header("refresh:2; url= index.html");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
