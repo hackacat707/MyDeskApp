@@ -1,3 +1,3 @@
-[3rd year project]
+3rd year project
 
-[Web app called MyDesk]
+Web app called MyDesk
