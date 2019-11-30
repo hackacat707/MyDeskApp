@@ -105,12 +105,28 @@ if (mysqli_num_rows ($result)>0){
 		<button type="submit" class="SearchBtn flRight" >Reserve</button>
 		</div>
 		<div class="col-sm-4 flLeft"> 
-			<div class = "" >
-				<img src ="images/image.png" class="placeImgBig" alt="big image"/>
-				<img src = "images/image.png" class="placeImgSmall" alt="small image"/>
-				<img src = "images/image.png" class="placeImgSmall" alt="small image"/>
-				<img src = "images/image.png" class="placeImgSmall" alt="small image"/>
-				
+			<div class="rowy">
+			  <div class="columny">
+				<img src ="images/image.png" class="placeImgSmall2" alt="big image" onclick="myFunction(this);"/>
+			  </div>
+			  <div class="columny">
+				<img src ="images/image.png" class="placeImgSmall2" alt="big image" onclick="myFunction(this);"/>
+			  </div>
+			  <div class="columny">
+				<img src ="images/image.png" class="placeImgSmall2" alt="big image" onclick="myFunction(this);"/>
+			  </div>
+			  <div class="columny">
+				<img src ="images/image.png" class="placeImgSmall2" alt="big image" onclick="myFunction(this);"/>
+			  </div>
+			</div>
+
+			<!-- The expanding image container -->
+			<div class="containery">
+			  <!-- Expanded image -->
+			  <img id="expandedImg" style="width:100%">
+
+			  <!-- Image text -->
+			  <div id="imgtext"></div>
 			</div>
 		</div>
       </div>
@@ -136,6 +152,20 @@ if (mysqli_num_rows ($result)>0){
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+	function myFunction(imgs) {
+	  // Get the expanded image
+	  var expandImg = document.getElementById("expandedImg");
+	  // Get the image text
+	  var imgText = document.getElementById("imgtext");
+	  // Use the same src in the expanded image as the image being clicked on from the grid
+	  expandImg.src = imgs.src;
+	  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+	  imgText.innerHTML = imgs.alt;
+	  // Show the container element (hidden with CSS)
+	  expandImg.parentElement.style.display = "block";
+	}
+</script>
 
 </body>
 

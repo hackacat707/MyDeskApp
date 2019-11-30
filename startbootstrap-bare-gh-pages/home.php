@@ -131,11 +131,11 @@ if (mysqli_num_rows ($result)>0){
 		 echo '<div class="col-sm-4 flLeft">
 			<div class = "contentBox" >
 				<img src = "images/image.png" class="placeImg" alt="place image"/>
-				<h6> Title/Location '.$titleR[$i]. 
+				<h6>'.$titleR[$i]. 
 				'</h6>
-				<p class= "lineHe prStyling">Price:' .$priceR[$i].
+				<p class= "lineHe prStyling">Price: ' .$priceR[$i].
 
-				'<p class= "lineHe raStyling" >Rating:' .$ratingR[$i].
+				'<p class= "lineHe raStyling" >Rating: ' .$ratingR[$i].
 				'</p>
 				<p class= "lineHe detStyling fBold"><a href="details.php?varId=' .$homeId.'" target= "blank" class="SRed">Details 
 				></a> </p>
@@ -187,11 +187,11 @@ if (mysqli_num_rows ($result)>0){
 		 echo '<div class="col-sm-4 flLeft">
 			<div class = "contentBox" >
 				<img src = "images/image.png" class="placeImg" alt="place image"/>
-				<h6> Title/Location '.$titleN[$i]. 
+				<h6>'.$titleN[$i]. 
 				'</h6>
-				<p class= "lineHe prStyling">Price:' .$priceN[$i].
+				<p class= "lineHe prStyling">Price: ' .$priceN[$i].
 
-				'<p class= "lineHe raStyling" >Rating:' .$ratingN[$i].
+				'<p class= "lineHe raStyling" >Rating: ' .$ratingN[$i].
 				'</p>
 				<p class= "lineHe detStyling fBold"><a href="details.php?varId=' .$homeId.'" target= "blank" class="SRed">Details ></a> </p>
 			</div>

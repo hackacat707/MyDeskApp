@@ -83,31 +83,6 @@ include "vendor/bootstrap/css/AdditionalCSS.css";
 	<br/>
   </div>
   
-  <div class="container">
-    <div class="row ">
-      <div class="col-lg-12">
-        <div class= "contentBox cBoxMore">
-			<h6> Filter Results</h6>
-			<form action="" class="checkboxes">
-				<label>
-					<input type="checkbox" name="checkbox" value="checkbox" >
-				</label> <label>checkbox</label>
-				<label>
-					<input type="checkbox" name="checkbox" value="checkbox">
-				</label> <label>checkbox</label>
-				<label>
-					<input type="checkbox" name="checkbox" value="checkbox">
-				</label> <label>checkbox</label>
-				<label>
-					<input type="checkbox" name="checkbox" value="checkbox">
-				</label> <label>checkbox</label>
-			  <input type="submit" class="FilterBtn" value="Filter" >
-			</form>
-		</div>
-      </div>
-    </div>
-	<br/>
-  </div>
   
   
   <div class="container">
