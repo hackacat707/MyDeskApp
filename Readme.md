@@ -5,7 +5,7 @@ Website/WebApp called Mydesk (Airbnb for office space)
 ## Team
 4 people:
 <br></br>
-Ioana (Me) --Login/Register and general maintenance
+Ioana (Me) --Login/Register, general maintenance, re-did posting/image system.
 <br></br>
 Connor --APIs and listings
 <br></br>
