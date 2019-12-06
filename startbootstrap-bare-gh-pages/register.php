@@ -1,24 +1,18 @@
 <?php
 // Change this to your connection info.
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'id11438325_mydeskapp';
-$DATABASE_PASS = '5minecrafts@boxes!';
-$DATABASE_NAME = 'id11438325_mydeskapp';
-include "databaseConnection.php";
-// Try and connect using the info above.
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if ( mysqli_connect_errno() ) {
-	// If there is an error with the connection, stop the script and display the error.
-	die ('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
 
+include_once "databaseConnection.php";
+// Try and connect using the info above.
+
+    $username = $_POST['username'];
+    $firstN  = $_POST['first'];
 // Now we check if the data was submitted, isset() function will check if the data exists.
-if (!isset($_POST['username'], $_POST['password'], $_POST['email'])) {
+if (!isset($_POST['username'], $_POST['password'], $_POST['email'], $_POST['first'])) {
 	// Could not get the data that should have been sent.
 	die ('Please complete the registration form!');
 }
 // Make sure the submitted registration values are not empty.
-if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])) {
+if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'] || $_POST['first'])) {
 	// One or more values are empty.
 	die ('Please complete the registration form');
 }
@@ -44,12 +38,38 @@ if ($stmt = $con->prepare('SELECT usr_id, pass FROM users WHERE uname = ?')) {
 		echo 'Username exists, please choose another!';
 	} else {
 		// Username doesnt exists, insert new account
-if ($stmt = $con->prepare('INSERT INTO users (uname ,pass, email ) VALUES (?, ?, ?)')) {
+if ($stmt = $con->prepare('INSERT INTO users (fname, lname, uname ,pass, email ) VALUES (?, ?, ?, ?, ?)')) {
 	// We do not want to expose passwords in our database, so hash the password and use password_verify when a user logs in.
 	$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-	$stmt->bind_param('sss', $_POST['username'], $password, $_POST['email']);
+	$stmt->bind_param('sssss', $_POST['first'], $_POST['last'], $_POST['username'], $password, $_POST['email']);
 	$stmt->execute();
+	
+	$sql = "SELECT * FROM users WHERE uname = ? AND fname = ?;";
+	$stmt = mysqli_stmt_init($con);
+	if (!mysqli_stmt_prepare($stmt, $sql))
+	{
+			echo "SQL could not be prepared ";
+			echo mysqli_error($con);
+		}
+		else 
+		{
+			mysqli_stmt_bind_param($stmt, "ss" , $username, $firstN);
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
+			
+			while ($row = mysqli_fetch_assoc($result))
+		{
+			$userid = $row['usr_id'];
+			$sql = "INSERT INTO imagedb (userid, status) VALUES ('$userid', 1)";
+			mysqli_query($con, $sql);
+			
+		}
+			
+			}
+			
 	header('Location: home.php');
+	
+	
 } else {
 	// Something is wrong with the sql statement, check to make sure accounts table exists with all 3 fields.
 	echo 'Could not prepare statement!';

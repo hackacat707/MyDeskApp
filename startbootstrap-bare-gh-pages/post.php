@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: login.html');
+	exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +16,7 @@
     <meta content="" name="description">
     <meta content="" name="author">
 
-    <title>Sign up for MyDesk</title>
+    <title>Post Your Place</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,9 +44,7 @@
                     <a class="nav-link" href="About.html">About Us</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="register.html">Sign Up
-					 <span class="sr-only">(current)</span>
-					</a>
+                    <a class="nav-link" href="register.html">Sign Up </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.html">Sign In</a>
@@ -49,6 +55,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact-us.html">Contact Us</a>
                 </li>
+		     <li class="nav-item">
+                    <a class="nav-link" href="post.html">Post
+		<span class="sr-only">(current)</span></a>
+                </li>
             </ul>
         </div>
     </div>
@@ -58,44 +68,38 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 text-center">
-            <h1 class="mt-5">Sign up for MyDesk</h1>
-            <p class="lead">Sign up to see more places and host your own place</p>
-             <form action="register.php" method="post">
+            <h1 class="mt-5">Post Your Own Place</h1>
+            <form action="postSend.php" method="post" enctype='multipart/form-data'>
+                <input type = 'file' name = 'file' >
                 <div class="form-group">
-                    <label for="first">
-					<i class="first"></i>
-				</label>
-					<input type="text" name="first" placeholder="Name" id="first" required>
+                    <label for="title"><i class="title"></i></label>
+					<input type="text" name="title" placeholder="Name: " id="title" required>
                 </div>
                 <div class="form-group">
-                    <label for="last">
-					<i class="last"></i>
-				</label>
-					<input type="text" name="last" placeholder="Name" id="last" required>
+                    <label for="address"><i class="title"></i></label>
+                    <input type="text" name = "address" id="address" placeholder= "Location" required>
                 </div>
                 <div class="form-group">
-                    <label for="username">
-					<i class="username"></i>
-				</label>
-					<input type="text" name="username" placeholder="Username" id="username" required>
+                    <label for="price"><i class="price"></i></label>
+                    <input type="text" name = "price" id="price" placeholder= "Rent: " required>
                 </div>
                 <div class="form-group">
-                    <label for="email">
-					<i class="email"></i>
-				</label>
-				<input type="email" name="email" placeholder="Email address" id="email" required>
+                    <label for="rating"><i class="rating"></i></label>
+                    <input type="number" name = "rating" id="rating" placeholder= "Rating" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">
-					<i class="password"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
+                    <label for="details"><i class="details"></i></label>
+                    <input type="text" id="details" name = "details" placeholder= "Details" required>
                 </div>
-                <div class="checkbox">
-                    <label><input type="checkbox"> Remember me</label>
+                <div class="form-group">
+                    <label for="phoneNo"><i class="phoneNo"></i></label>
+                    <input type ="number" id="phoneNo" name = "phoneNo" placeholder= "Phone number:" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="email"></i></label>
+                    <input type="text" id="email" name = "email" placeholder= "Email address:">
                 </div>
                 <button class="btn btn-default" type="submit" name="submit">Submit</button>
-	            <button class="btn btn-default" type="submit" name="home">back to home page</button>
             </form>
         </div>
     </div>
