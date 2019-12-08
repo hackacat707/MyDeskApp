@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>Listing</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap.min.css" rel="stylesheet">
+	
+	<link href="../Gallery.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">   
+
+	  <img src="../My Desk Logo.png" alt="Logo" style="width:80px;height:80px;"></a>
+        <button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../About.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../register.html">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../login.html">Sign In</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" href="../../FAQ.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../contact-us.html">Contact Us</a>
+                </li>
+		     <li class="nav-item">
+                    <a class="nav-link" href="../../post.php">Rent Your Place</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 4</div>
+    <img src="office1.jpg" style="width:100%">
+    <div class="text">Open Pan Office</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 4</div>
+    <img src="office2.jpg" style="width:100%">
+    <div class="text">Personal Cubicles Available</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 4</div>
+    <img src="office3.jpg" style="width:100%">
+    <div class="text">Board Room Space</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">4 / 4</div>
+    <img src="office4.jpg" style="width:100%">
+    <div class="text">City Centre location</div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+</div>
+
+<div id="text">
+<h1>City Centre Office Space</h1>
+
+<div class="col-sm-8 flLeft"> 
+		<p> <b>Address:</b> 17 Westmoreland Row, Dublin 1 </p>
+		<p> <b>Contact the Host:</b> xxxxx@Gmail.com </p>
+		<p> <b>Price:</b> €15 Per day </p>
+		<p> <b>Description:</b> A Dublin office located in the heart of the city. Excellent service for buses and Dart.
+		</br> Full consierge service. Available weekdays until 9pm. Email Seller for more information.</p>
+		<p> <b>Booking Ref.:</b> DublinC1 </p>
+		
+		<button type="submit" class="SearchBtn flRight">
+		 <a href="javascript:void( window.open( 'https://form.jotformeu.com/93232475122350', 'blank', 'scrollbars=yes, toolbar=no, width=700, height=500' ) ) "> Reserve Now </a>
+		</button>
+		</div>
+		
+<h1>Includes</h1>
+<img src="../wifi.png">
+</div>
+
+<div id="googleMap" style="width:100%;height:400px; margin:0 auto;"></div>
+
+<script>
+
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(53.352654 , -6.266014),
+  zoom:15,
+};
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+	var address = {lat: 53.352654 ,lng: -6.266014};
+	var marker = new google.maps.Marker({
+			position: address,
+			map: map,
+			title: 'Ranelagh House'
+			});
+  
+  marker.setMap(myMap);
+} 
+
+</script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzORKjpjUJVLyhW39xpF-xSXwZuhwozuA&callback=myMap"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.slim.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../image.js"></script>
+</body>
+
+</html>
