@@ -1,17 +1,14 @@
 <?php
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'id11438325_mydeskapp';
-$DATABASE_PASS = '5minecrafts@boxes!';
-$DATABASE_NAME = 'id11438325_mydeskapp';
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+include_once 'databaseConnection.php';
 if (!$con)
 {
 	echo 'Not Connected to the server';
 }
-if (!mysqli_select_db($con,= 'id11438325_mydeskapp'))
+if (!mysqli_select_db($con, 'id11438325_mydeskapp'))
 {
 echo 'Database is not selected';
 }
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
