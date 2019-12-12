@@ -15,11 +15,10 @@ echo 'Database is not selected';
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $call = $_POST['call'];
     $priority = $_POST['priority'];
     $type = $_POST['type'];
     $message = $_POST['message'];
-$sql="Insert INTO id11438325_mydeskapp (name,email,phone,call,priority,type,message) VALUES ('$name','$email','$phone','$call','$priority','$type','$message')";
+$sql="Insert INTO id11438325_mydeskapp (name,email,phone,priority,type,message) VALUES ('$name','$email','$phone' ,'$priority','$type','$message')";
 if(!mysqli_query($con,$sql))
 {
 echo ' Fail to Send Message';
