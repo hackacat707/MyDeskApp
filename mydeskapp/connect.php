@@ -16,6 +16,7 @@ echo 'Database is not selected';
     $type = $_POST['type'];
     $message = $_POST['message'];
 $sql="Insert INTO contactInfo (name,email,phone,priority,type,message) VALUES ('$name','$email','$phone' ,'$priority','$type','$message')";
+$result= mysqli_query($con,$sql);
 if(!mysqli_query($con,$sql))
 {
 echo ' Fail to Send Message';
