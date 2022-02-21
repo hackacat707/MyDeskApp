@@ -29,8 +29,13 @@
         "url": "https://github.com/BlackrockDigital/startbootstrap-bare.git"
     },
     "dependencies": {
+ snyk-upgrade-bea79b64c5e3678ce48ebd86564481a7
         "bootstrap": "4.3.1",
         "jquery": "3.6.0"
+=======
+        "bootstrap": "4.3.1",
+        "jquery": "3.5.0"
+
     },
     "devDependencies": {
         "browser-sync": "2.26.7",
